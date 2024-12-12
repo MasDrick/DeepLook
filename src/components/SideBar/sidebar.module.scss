@@ -1,10 +1,43 @@
+@import '../../scss/variables';
+
 .nav {
-  background-color: #27272a;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
   position: fixed;
-  width: 225px;
-  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  padding-top: 1.75rem;
+  border-color: #e5e7eb;
+  width: 16rem;
+  background-color: #ffffff;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  transition-duration: 300ms;
 }
 .logo {
   display: flex;
+}
+.categories {
+  display: flex;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  column-gap: 0.875rem;
+  align-items: center;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #374151;
+  background-color: #ffffff;
+
+  &:hover {
+    background-color: #f3f4f6;
+  }
+}
+.active {
+  background: rgb(243 244 246);
 }
