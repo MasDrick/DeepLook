@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './sidebar.module.scss';
 import { useState } from 'react';
+import { Link } from 'react-router';
 
 const SideBar = () => {
   const [active, setActive] = useState(0);
@@ -8,14 +9,22 @@ const SideBar = () => {
     {
       title: 'Обзор',
       icon: <img className="size-4" src="./img/view.svg" alt="settings" />,
+      link: '/',
     },
     {
       title: 'Мониторинг',
       icon: <img className="size-5" src="./img/monitoring.svg" alt="settings" />,
+      link: '/monitoring',
+    },
+    {
+      title: 'Тарифы',
+      icon: <img className="size-5" src="./img/monitoring.svg" alt="settings" />,
+      link: '/tariffs',
     },
     {
       title: 'Настройки',
       icon: <img className="size-5" src="./img/settings.svg" alt="settings" />,
+      link: '/settings',
     },
   ];
 
@@ -40,13 +49,13 @@ const SideBar = () => {
         <ul className="space-y-1.5">
           {menuItems.map((item, i) => (
             <li key={item.title}>
-              <a
+              <Link
                 onClick={() => setActive(i)}
                 className={`${active === i ? s.active : ''} ${s.categories}`}
-                href="#">
+                to={item.link}>
                 {item.icon}
                 {item.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
