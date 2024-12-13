@@ -9,9 +9,9 @@
   top: 0;
   bottom: 0;
   padding-top: 1.75rem;
-  border-color: #e5e7eb;
+  border-color: $white;
   width: 16rem;
-  background-color: #ffffff;
+  background-color: $normalhover;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
@@ -31,13 +31,14 @@
   border-radius: 0.5rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #374151;
-  background-color: #ffffff;
+  color: $white;
+  background-color: $normalhover;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: #f3f4f6;
+    background-color: $normal;
   }
 }
 .active {
-  background: rgb(243 244 246);
+  background: $normal;
 }
