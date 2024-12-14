@@ -39,3 +39,10 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
 }
+.mainLayout {
+  flex: 1;
+  height: 100vh;
+  padding: 20px;
+  margin-left: 16rem; // добавляем отступ равный ширине сайдбара
+  background-color: $light;
+}

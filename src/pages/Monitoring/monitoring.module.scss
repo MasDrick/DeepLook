@@ -1,16 +1,1 @@
-@use '../../scss/variables' as *;
 
-.container {
-  flex: 1;
-  height: 100vh;
-  padding: 20px;
-  margin-left: 16rem; // добавляем отступ равный ширине сайдбара
-  background-color: $dark;
-
-  h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: $white;
-    text-align: center;
-  }
-}

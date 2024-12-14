@@ -3,18 +3,43 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  height: 25rem;
-  background-color: $normal;
+  justify-content: space-between;
+  width: min(90%, 52rem);
+  height: min(80vh, 25rem);
+  background: linear-gradient(to bottom, $normal 50%, $normalhover 50%);
+  padding: 25px 30px 35px;
   border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 
-  h1 {
-    font-size: 3rem;
-    text-transform: uppercase;
-    color: $white;
-    font-weight: 700;
-    margin-bottom: 1rem;
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $light;
+    }
+
+    .customButton {
+      text-transform: none;
+      font-weight: 500;
+      background-color: $normal;
+      font-size: 1rem;
+      border: 1px solid $normal;
+      transition: all 0.3s ease;
+      padding: 0.3rem 1rem;
+
+      &:hover {
+        border-color: $light;
+      }
+    }
   }
+}
+
+.wrapper {
+  padding: 20px;
+  background-color: $light;
+  border-radius: 1rem;
 }
