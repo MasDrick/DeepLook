@@ -22,11 +22,17 @@ const Tracking = () => {
         title="Добавить сайт для мониторинга"
         centered
         open={open}
-        onOk={() => setOpen(false)}
+        footer={null}
         onCancel={() => setOpen(false)}>
         <div className={s.wrapper}>
           <AddUrl />
         </div>
+        <Button
+          style={{ width: '100%', marginTop: '10px' }}
+          type="primary"
+          onClick={() => setOpen(false)}>
+          Добавить
+        </Button>
       </Modal>
       <section>
         <div className={s.card}>
