@@ -1,10 +1,29 @@
 import React from 'react';
-import AddUrl from '../AddUrl';
+import AddUrl, { urlAtom, shortNameAtom, intervalAtom } from '../AddUrl';
 import s from './tracking.module.scss';
 import { Button, Modal } from 'antd';
+import { Statistic } from 'antd';
+import { atom, useAtom } from 'jotai';
+
+// Создаем атом для хранения состояния модального окна
+const modalAtom = atom(false);
+
+const green = '#4ca600';
+const red = '#ff4d4f';
+const yellow = '#ffc107';
 
 const Tracking = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useAtom(modalAtom);
+  const [url] = useAtom(urlAtom);
+  const [shortName] = useAtom(shortNameAtom);
+  const [interval] = useAtom(intervalAtom);
+
+  const handleAddClick = () => {
+    console.log('URL:', url);
+    console.log('Короткое название:', shortName);
+    console.log('Интервал проверки:', interval);
+    setOpen(false);
+  };
 
   return (
     <div className={s.container}>
@@ -30,7 +49,7 @@ const Tracking = () => {
         <Button
           style={{ width: '100%', marginTop: '10px' }}
           type="primary"
-          onClick={() => setOpen(false)}>
+          onClick={handleAddClick}>
           Добавить
         </Button>
       </Modal>
@@ -40,9 +59,31 @@ const Tracking = () => {
           <p>Статус</p>
         </div>
       </section>
-      <footer>
-        <Button type="primary">Button</Button>
-      </footer>
+      <div className={s.footer}>
+        <div className={s.access}>
+          <h2>Доступность</h2>
+          <div className={s.statistics}>
+            <div className={s.day}>
+              <h3 style={{ color: green }}>100%</h3>
+              <p>24 часа</p>
+            </div>
+            <div className={s.week}>
+              <h3 style={{ color: yellow }}>95.8%</h3>
+              <p>7 дней</p>
+            </div>
+            <div className={s.month}>
+              <h3 style={{ color: red }}>52.72%</h3>
+              <p>Месяц</p>
+            </div>
+          </div>
+        </div>
+        <div className={s.suspended}>
+          <h2>Приостановлены</h2>
+          <div className={s.pause}>
+            <p>Выключить мониторинг</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

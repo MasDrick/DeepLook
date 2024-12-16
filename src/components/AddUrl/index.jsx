@@ -1,12 +1,20 @@
 import React from 'react';
 import { Form, Input, Slider, Collapse } from 'antd';
+import { atom, useAtom } from 'jotai';
 import s from './addUrl.module.scss';
 
 const { Panel } = Collapse;
 
+// Создаем атомы для хранения значений формы
+export const urlAtom = atom('');
+export const shortNameAtom = atom('');
+export const intervalAtom = atom('10');
+
 const AddUrl = () => {
-  const [interval, setInterval] = React.useState('10');
-  const [time, setTime] = React.useState(', мин');
+  const [url, setUrl] = useAtom(urlAtom);
+  const [shortName, setShortName] = useAtom(shortNameAtom);
+  const [interval, setInterval] = useAtom(intervalAtom);
+  const [time, setTime] = React.useState(' мин');
 
   const marks = {
     1: '1 м',
@@ -21,7 +29,7 @@ const AddUrl = () => {
 
   const handleSliderChange = (value) => {
     if (value >= 60) {
-      setTime(', ч');
+      setTime(' ч');
       if (value == 60) {
         setInterval('1');
       } else if (value == 75) {
@@ -34,9 +42,15 @@ const AddUrl = () => {
         setInterval('24');
       }
     } else {
-      setTime(', мин');
-      setInterval(value);
+      setTime(' мин');
+      setInterval(value.toString());
     }
+  };
+
+  const handleSubmit = () => {
+    console.log('URL:', url);
+    console.log('Short Name:', shortName);
+    console.log('Interval:', interval);
   };
 
   return (
@@ -47,17 +61,14 @@ const AddUrl = () => {
         initialValues={{
           timepicker: 10,
         }}
-        onFinish={(values) => {
-          console.log('Submitted URL:', values);
-          setOpen(false);
-        }}>
+        onFinish={handleSubmit}>
         <Form.Item
           name="url"
           label="URL сайта"
           style={{ marginBottom: 10 }}
           rules={[
             {
-              required: false,
+              required: true,
               message: 'Пожалуйста, введите URL',
             },
             {
@@ -65,15 +76,25 @@ const AddUrl = () => {
               message: 'Пожалуйста, введите корректный URL',
             },
           ]}>
-          <Input placeholder="https://example.com" size="large" />
+          <Input
+            placeholder="https://example.com"
+            size="large"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+          />
         </Form.Item>
         <Form.Item name="shortName" label="Короткое название" style={{ marginBottom: 10 }}>
-          <Input placeholder="Короткое название" size="large" />
+          <Input
+            placeholder="Короткое название"
+            size="large"
+            value={shortName}
+            onChange={(e) => setShortName(e.target.value)}
+          />
         </Form.Item>
 
         <h4>
           Интервал проверки: {interval}
-          {time.replace(', ', ' ')}
+          {time}
         </h4>
         <Form.Item name="timepicker" style={{ marginBottom: 10 }}>
           <Slider

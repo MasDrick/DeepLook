@@ -4,24 +4,24 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: min(90%, 52rem);
+  width: 100%;
   height: min(80vh, 25rem);
   background: linear-gradient(to bottom, $normal 50%, $normalhover 50%);
   padding: 25px 30px 35px;
   border-radius: 1rem;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 
-  header {
+  nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
 
     h1 {
       font-size: 1.5rem;
       font-weight: 700;
       color: $light;
     }
-
     .customButton {
       text-transform: none;
       font-weight: 500;
@@ -36,41 +36,15 @@
       }
     }
   }
-}
-
-.wrapper {
-  padding: 20px;
-  background-color: $light;
-  border-radius: 1rem;
-}
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  h2 {
-    font-size: 1rem;
-    margin-bottom: 5px;
+  .table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
+    backdrop-filter: blur(10px);
+    border-radius: 2%;
   }
-  .access {
-    .statistics {
-      display: flex;
-      align-items: flex-end;
-      gap: 20px;
-
-      p {
-        font-size: 0.8rem;
-        margin-left: 5px;
-      }
-      .day {
-        h3 {
-          font-size: 1.5rem;
-          font-weight: 500;
-        }
-      }
-    }
-  }
-}
-
-.suspended {
-  text-align: right;
 }

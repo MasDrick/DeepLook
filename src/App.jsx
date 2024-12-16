@@ -2,9 +2,9 @@ import React from 'react';
 import SideBar from './components/SideBar';
 import Home from './pages/Home/Home';
 import Monitoring from './pages/Monitoring/Monitoring';
-import Tariffs from './pages/Tariffs/Tariffs';
 import Settings from './pages/Settings/Settings';
 import NotFound from './pages/NotFound/NotFound';
+import Incidents from './pages/Incidents/Incident';
 import { Routes, Route } from 'react-router';
 import './scss/app.scss';
 
@@ -34,10 +34,10 @@ const App = () => (
       }
     />
     <Route
-      path="/tariffs"
+      path="/incidents"
       element={
         <Layout>
-          <Tariffs />
+          <Incidents />
         </Layout>
       }
     />

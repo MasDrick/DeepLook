@@ -2,10 +2,12 @@ import React from 'react';
 import s from './sidebar.module.scss';
 import { useState } from 'react';
 import { Link } from 'react-router';
-import { AppstoreOutlined, LogoutOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, LogoutOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import { useAtom } from 'jotai';
+import { activeTabAtom } from '../../atoms';
 
 const SideBar = () => {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useAtom(activeTabAtom);
   const menuItems = [
     {
       title: 'Обзор',
@@ -18,14 +20,19 @@ const SideBar = () => {
       link: '/monitoring',
     },
     {
-      title: 'Тарифы',
+      title: 'Инциденты',
       icon: <img className="size-5" src="./img/monitoring.svg" alt="settings" />,
-      link: '/tariffs',
+      link: '/incidents',
     },
     {
       title: 'Настройки',
       icon: <img className="size-5" src="./img/settings.svg" alt="settings" />,
       link: '/settings',
+    },
+    {
+      title: '404',
+      icon: <ExclamationCircleOutlined style={{ fontSize: '20px', color: '#fff' }} />,
+      link: '/asdfasdf',
     },
   ];
 
@@ -40,7 +47,8 @@ const SideBar = () => {
         <Link
           className="font-semibold text-2xl text-center focus:outline-none focus:opacity-80 text-white"
           to="/"
-          aria-label="Brand">
+          aria-label="Brand"
+          onClick={() => setActive(0)}>
           DeepLook
         </Link>
       </div>
