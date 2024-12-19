@@ -1,5 +1,5 @@
-import React from 'react';
-import { Form, Input, Slider, Collapse } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Form, Input, Slider, Collapse, Button } from 'antd';
 import { atom, useAtom } from 'jotai';
 import s from './addUrl.module.scss';
 
@@ -10,11 +10,11 @@ export const urlAtom = atom('');
 export const shortNameAtom = atom('');
 export const intervalAtom = atom('10');
 
-const AddUrl = () => {
+const AddUrl = ({ onFormValidityChange }) => {
   const [url, setUrl] = useAtom(urlAtom);
   const [shortName, setShortName] = useAtom(shortNameAtom);
   const [interval, setInterval] = useAtom(intervalAtom);
-  const [time, setTime] = React.useState(' мин');
+  const [time, setTime] = useState(' мин');
 
   const marks = {
     1: '1 м',
@@ -52,6 +52,20 @@ const AddUrl = () => {
     console.log('Short Name:', shortName);
     console.log('Interval:', interval);
   };
+
+  useEffect(() => {
+    const urlPattern = new RegExp(
+      '^(https?:\\/\\/)?' + // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+        '(\\#[-a-z\\d_]*)?$',
+      'i',
+    ); // fragment locator
+    const isValid = urlPattern.test(url) && shortName.trim() !== '' && interval !== '';
+    onFormValidityChange(isValid);
+  }, [url, shortName, interval, onFormValidityChange]);
 
   return (
     <div>

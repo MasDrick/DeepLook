@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AddUrl, { urlAtom, shortNameAtom, intervalAtom } from '../AddUrl';
 import s from './tracking.module.scss';
-import { Button, Modal } from 'antd';
-import { Statistic } from 'antd';
+import { Button, Modal, message } from 'antd';
 import { atom, useAtom } from 'jotai';
+import { modalAtom } from '../../atoms';
 
 // Создаем атом для хранения состояния модального окна
-const modalAtom = atom(false);
 
 const green = '#4ca600';
 const red = '#ff4d4f';
@@ -14,19 +13,32 @@ const yellow = '#ffc107';
 
 const Tracking = () => {
   const [open, setOpen] = useAtom(modalAtom);
-  const [url] = useAtom(urlAtom);
-  const [shortName] = useAtom(shortNameAtom);
-  const [interval] = useAtom(intervalAtom);
+  const [url, setUrl] = useAtom(urlAtom);
+  const [shortName, setShortName] = useAtom(shortNameAtom);
+  const [interval, setInterval] = useAtom(intervalAtom);
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  const [messageApi, contextHolder] = message.useMessage();
 
   const handleAddClick = () => {
     console.log('URL:', url);
     console.log('Короткое название:', shortName);
     console.log('Интервал проверки:', interval);
+
+    setUrl('');
+    setShortName('');
+    setInterval('');
+
     setOpen(false);
+    messageApi.open({
+      type: 'success',
+      content: 'Успешно добавлено',
+    });
   };
 
   return (
     <div className={s.container}>
+      {contextHolder}
       <header>
         <h1>Мониторинг</h1>
         <button
@@ -44,9 +56,10 @@ const Tracking = () => {
         footer={null}
         onCancel={() => setOpen(false)}>
         <div className={s.wrapper}>
-          <AddUrl />
+          <AddUrl onFormValidityChange={setIsFormValid} />
         </div>
         <Button
+          disabled={!isFormValid}
           style={{ width: '100%', marginTop: '10px' }}
           type="primary"
           onClick={handleAddClick}>

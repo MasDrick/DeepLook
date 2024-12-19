@@ -6,11 +6,13 @@ import { Link } from 'react-router';
 
 import { useAtom } from 'jotai';
 import { activeTabAtom } from '../../atoms';
+import { modalAtom } from '../../atoms';
 
 import s from './hometable.module.scss';
 
 const HomeTable = () => {
   const [, setActive] = useAtom(activeTabAtom);
+  const [, setOpen] = useAtom(modalAtom);
 
   return (
     <div className={s.container}>
@@ -26,12 +28,14 @@ const HomeTable = () => {
         </button>
       </nav>
       <div className={s.table}>
-        <Empty description="">
-          <p className="text-white text-center font-medium uppercase mb-4">Нет данных</p>
-          <Button size="medium" type="primary">
-            Создать
-          </Button>
-        </Empty>
+        <div className={`${s.empty} w-full h-full`}>
+          <Empty description="">
+            <p className="text-white text-center font-medium uppercase mb-4">Нет данных</p>
+            <Button onClick={() => setOpen(true)} size="medium" type="primary">
+              Создать
+            </Button>
+          </Empty>
+        </div>
       </div>
     </div>
   );

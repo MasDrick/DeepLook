@@ -2,7 +2,7 @@ import React from 'react';
 import s from './sidebar.module.scss';
 import { useState } from 'react';
 import { Link } from 'react-router';
-import { AppstoreOutlined, LogoutOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import { LayoutDashboard, ShieldAlert, Settings, ChartLine, CircleX, LogOut } from 'lucide-react';
 import { useAtom } from 'jotai';
 import { activeTabAtom } from '../../atoms';
 
@@ -11,27 +11,28 @@ const SideBar = () => {
   const menuItems = [
     {
       title: 'Обзор',
-      icon: <AppstoreOutlined style={{ fontSize: '20px', color: '#fff' }} />,
+      icon: <LayoutDashboard size={20} />,
       link: '/',
     },
     {
       title: 'Мониторинг',
-      icon: <img className="size-5" src="./img/monitoring.svg" alt="settings" />,
+      icon: <ChartLine size={20} />,
       link: '/monitoring',
+      // <img className="size-5" src="./img/monitoring.svg" alt="settings" />
     },
     {
       title: 'Инциденты',
-      icon: <img className="size-5" src="./img/monitoring.svg" alt="settings" />,
+      icon: <ShieldAlert size={20} />,
       link: '/incidents',
     },
     {
       title: 'Настройки',
-      icon: <img className="size-5" src="./img/settings.svg" alt="settings" />,
+      icon: <Settings size={20} />,
       link: '/settings',
     },
     {
       title: '404',
-      icon: <ExclamationCircleOutlined style={{ fontSize: '20px', color: '#fff' }} />,
+      icon: <CircleX size={20} />,
       link: '/asdfasdf',
     },
   ];
@@ -68,10 +69,10 @@ const SideBar = () => {
             </li>
           ))}
         </ul>
-        <a className={s.categories} href="#">
-          <LogoutOutlined style={{ fontSize: '18px', color: '#fff' }} />
+        <Link className={s.categories} to="/login">
           Выйти
-        </a>
+          <LogOut size={20} />
+        </Link>
       </nav>
     </div>
   );
