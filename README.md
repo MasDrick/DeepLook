@@ -1,9 +1,14 @@
-# React + Vite
+# DeepLook
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Сервис для отслеживания корректной работы веб-сайтов предоставляет пользователям возможность мониторинга производительности и доступности их веб-ресурсов. С его помощью можно своевременно выявлять и устранять проблемы, обеспечивая стабильную работу сайтов и улучшая пользовательский опыт.
 
-Currently, two official plugins are available:
+Технологии:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# asdf
+- React + Vite
+- Tailwind
+- Antd
+- Jotai
+- React Router
+- React Hook Form
+- Sass
+- Lucide Icons

@@ -120,18 +120,6 @@ const AddUrl = ({ onFormValidityChange }) => {
             tooltip={{ formatter: null }}
           />
         </Form.Item>
-        <Collapse defaultActiveKey={['1']}>
-          <Panel header="Уведомления" key="1">
-            <h1>Да есть же</h1>
-            <p>Содержимое первой секции</p>
-          </Panel>
-          <Panel header="Расширенные настройки" key="2">
-            <img
-              src="https://img-webcalypt.ru/storage/memes/44376/202412/Ix5ECz7SooSkcHNnGyXc5RxWySkNWqJDrC5smz9VS3OvD1Zb2Cftip4oqzhl4QdbJLIR76edebjj1poyh0twdOkgNIxD8UlQL7aHeTk9ucHgq5O6tZ4eY69iyavm03nh-md.jpeg"
-              alt=""
-            />
-          </Panel>
-        </Collapse>
       </Form>
     </div>
   );

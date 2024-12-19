@@ -1,13 +1,15 @@
 import React from 'react';
+import { useLocation } from 'react-router';
 import s from './sidebar.module.scss';
-import { useState } from 'react';
 import { Link } from 'react-router';
 import { LayoutDashboard, ShieldAlert, Settings, ChartLine, CircleX, LogOut } from 'lucide-react';
 import { useAtom } from 'jotai';
 import { activeTabAtom } from '../../atoms';
 
 const SideBar = () => {
-  const [active, setActive] = useAtom(activeTabAtom);
+  const location = useLocation();
+  const [, setActive] = useAtom(activeTabAtom);
+
   const menuItems = [
     {
       title: 'Обзор',
@@ -18,7 +20,6 @@ const SideBar = () => {
       title: 'Мониторинг',
       icon: <ChartLine size={20} />,
       link: '/monitoring',
-      // <img className="size-5" src="./img/monitoring.svg" alt="settings" />
     },
     {
       title: 'Инциденты',
@@ -37,6 +38,8 @@ const SideBar = () => {
     },
   ];
 
+  const activeIndex = menuItems.findIndex((item) => item.link === location.pathname);
+
   return (
     <div
       className={s.nav}
@@ -46,10 +49,11 @@ const SideBar = () => {
       aria-label="Sidebar">
       <div className="px-6">
         <Link
-          className="font-semibold text-2xl text-center focus:outline-none focus:opacity-80 text-white"
+          className="flex items-center gap-2 font-semibold text-2xl text-center focus:outline-none focus:opacity-80 text-white"
           to="/"
           aria-label="Brand"
           onClick={() => setActive(0)}>
+          <img width={40} src="/img/Logo.svg" alt="logo" />
           DeepLook
         </Link>
       </div>
@@ -61,7 +65,7 @@ const SideBar = () => {
             <li key={item.title}>
               <Link
                 onClick={() => setActive(i)}
-                className={`${active === i ? s.active : ''} ${s.categories}`}
+                className={`${activeIndex === i ? s.active : ''} ${s.categories}`}
                 to={item.link}>
                 {item.icon}
                 {item.title}
@@ -69,7 +73,12 @@ const SideBar = () => {
             </li>
           ))}
         </ul>
-        <Link className={s.categories} to="/login">
+        <Link
+          className={s.categories}
+          to="/login"
+          onClick={() => {
+            localStorage.setItem('isAuthenticated', 'false');
+          }}>
           Выйти
           <LogOut size={20} />
         </Link>

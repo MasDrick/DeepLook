@@ -13,6 +13,7 @@ const Login = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isValid },
   } = useForm({
     mode: 'onChange',
@@ -20,22 +21,42 @@ const Login = () => {
   const [, setIsAuthenticated] = useAtom(isAuthenticatedAtom);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [remember, setRemember] = useState(false);
 
   useEffect(() => {
     document.title = 'Авторизация';
-  }, []);
+
+    const savedData = JSON.parse(localStorage.getItem('userData'));
+    if (savedData && savedData.rememberMe) {
+      setValue('username', savedData.username || '');
+      setValue('password', savedData.password || '');
+    }
+  }, [setValue]);
 
   const onSubmit = (data) => {
     console.log('Received values of form: ', data);
     console.log('Form is valid:', isValid);
+    console.log('Remember me:', remember);
     setIsAuthenticated(true);
+    localStorage.setItem('isAuthenticated', 'true');
+
+    localStorage.setItem(
+      'userData',
+      JSON.stringify({
+        username: data.username,
+        password: data.password,
+        rememberMe: remember,
+      }),
+    );
+    console.log(remember ? 'Данные сохранены в localStorage' : 'Данные удалены из localStorage');
+
     navigate('/'); // Перенаправление на главную страницу
   };
 
   return (
     <div className={s.wrapper}>
       <div className="w-[400px] min-w-[340px] mx-auto p-8 border rounded-lg shadow-lg bg-white">
-        <h2 className="text-3xl font-bold text-center mb-8 text-black ">Вход</h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-black">Вход</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="w-full max-w-sm min-w-[200px]">
             <div className="relative">
@@ -77,7 +98,10 @@ const Login = () => {
             )}
           </div>
           <div className="flex items-center justify-between">
-            <Checkbox {...register('remember')} className="text-gray-700">
+            <Checkbox
+              checked={remember}
+              onChange={() => setRemember(!remember)}
+              className="text-gray-700">
               Запомнить меня
             </Checkbox>
             <a className="text-sm text-blue-500 hover:underline" href="">

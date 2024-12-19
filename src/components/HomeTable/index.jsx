@@ -1,7 +1,6 @@
 import React from 'react';
 import { Empty, Button } from 'antd';
-import { RightCircleOutlined } from '@ant-design/icons';
-
+import { CircleArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
 
 import { useAtom } from 'jotai';
@@ -21,9 +20,9 @@ const HomeTable = () => {
         <button
           className={`flex items-center gap-2 rounded-lg ${s.customButton}`}
           onClick={() => setActive(2)}>
-          <Link to="/incidents">
+          <Link to="/incidents" className="flex items-center">
             Все инциденты
-            <RightCircleOutlined style={{ marginLeft: '10px' }} />
+            <CircleArrowRight size={18} style={{ marginLeft: '10px' }} />
           </Link>
         </button>
       </nav>
