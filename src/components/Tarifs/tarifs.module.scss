@@ -1,0 +1,186 @@
+@use '../../scss/variables' as *;
+@use "sass:color";
+
+.tariffsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  padding: 40px 20px;
+  min-height: 100vh;
+  flex-wrap: wrap;
+  background: $light;
+  
+  @media (max-width: 768px) {
+    gap: 20px;
+    padding: 20px;
+  }
+}
+
+.tariffCard {
+  background-color: $white;
+  border-radius: 20px;
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 8px 24px rgba($dark, 0.08);
+  overflow: hidden;
+  border: 2px solid transparent;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba($dark, 0.12);
+  }
+}
+
+.activeTariff {
+  border-color: $normal;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba($normal, 0.15);
+  
+  .tariffHeader {
+    background: linear-gradient(135deg, $normal, color.adjust($normal, $lightness: -15%));
+  }
+  
+  .checkIcon {
+    color: $normal;
+  }
+}
+
+.tariffHeader {
+  padding: 40px 25px 30px;
+  background: linear-gradient(135deg, color.adjust($normal, $lightness: 10%), $normal);
+  text-align: center;
+  color: $white;
+  transition: all 0.3s ease;
+  
+  h3 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+}
+
+.tariffIcon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 20px;
+}
+
+.priceBlock {
+  margin-top: 15px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
+}
+
+.price {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.period {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.tariffMain {
+  flex-grow: 1;
+  padding: 30px 25px;
+  background: $white;
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid $light;
+    color: $dark;
+    font-size: 1rem;
+    line-height: 1.5;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.checkIcon {
+  color: $normal;
+  flex-shrink: 0;
+  margin-top: 3px;
+  width: 20px;
+  height: 20px;
+}
+
+.tariffFooter {
+  padding: 25px;
+  text-align: center;
+  background: $white;
+  border-top: 1px solid $light;
+}
+
+.buyButton {
+  background: $normal;
+  color: $white;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  
+  &:hover {
+    background: color.adjust($normal, $lightness: -5%);
+    transform: translateY(-2px);
+  }
+  
+  &:active {
+    background: color.adjust($normal, $lightness: -10%);
+    transform: translateY(0);
+  }
+}
+
+.activeButton {
+  background: $dark;
+  
+  &:hover {
+    background: color.adjust($dark, $lightness: -5%);
+  }
+  
+  &:active {
+    background: color.adjust($dark, $lightness: -10%);
+  }
+}
+
+.activeOverlay {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  pointer-events: none;
+}
+
+.activeBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: $normal;
+  color: $white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba($normal, 0.2);
+}

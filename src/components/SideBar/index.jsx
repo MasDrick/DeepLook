@@ -2,7 +2,7 @@ import React from 'react';
 import s from './sidebar.module.scss';
 import { useState } from 'react';
 import { Link } from 'react-router';
-import { LayoutDashboard, ShieldAlert, Settings, ChartLine, CircleX, LogOut } from 'lucide-react';
+import { LayoutDashboard, ShieldAlert, Settings, ChartLine, CircleX, LogOut, CircleDollarSign } from 'lucide-react';
 import { useAtom } from 'jotai';
 import { activeTabAtom } from '../../atoms';
 
@@ -26,6 +26,11 @@ const SideBar = () => {
       link: '/incidents',
     },
     {
+      title: 'Тарифы',
+      icon: <CircleDollarSign  size={20} />,
+      link: '/tariffs',
+    },
+    {
       title: 'Настройки',
       icon: <Settings size={20} />,
       link: '/settings',
@@ -44,9 +49,14 @@ const SideBar = () => {
       role="dialog"
       tabIndex={-1}
       aria-label="Sidebar">
-      <div className="px-6">
+      <div className="px-6 flex items-center">
+        <img
+          src="./img/logo.svg"
+          alt="Logo"
+          className="h-8 w-8 mr-3"
+        />
         <Link
-          className="font-semibold text-2xl text-center focus:outline-none focus:opacity-80 text-white"
+          className="font-semibold text-2xl focus:outline-none focus:opacity-80 text-white"
           to="/"
           aria-label="Brand"
           onClick={() => setActive(0)}>
