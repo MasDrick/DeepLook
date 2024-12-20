@@ -7,7 +7,6 @@ import { Empty, Button, Modal, message } from 'antd';
 import { useAtom } from 'jotai';
 
 const Monitoring = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useAtom(modalAtom);
   const [isFormValid, setIsFormValid] = useState(false);
   const [url, setUrl] = useAtom(urlAtom);
@@ -66,20 +65,7 @@ const Monitoring = () => {
         </Button>
       </Modal>
 
-      {isLoading ? (
-        <MonitorTable />
-      ) : (
-        <div className={s.emptyContainer}>
-          <div className={`${s.empty} w-3/5 h-3/5`}>
-            <Empty description="">
-              <p className="text-white text-center font-medium uppercase mb-4">Нет данных</p>
-              <Button onClick={() => setIsLoading(!isLoading)} size="medium" type="primary">
-                Создать
-              </Button>
-            </Empty>
-          </div>
-        </div>
-      )}
+      <MonitorTable />
     </div>
   );
 };

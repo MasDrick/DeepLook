@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound/NotFound';
 import Incidents from './pages/Incidents/Incident';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import Tariffs from './pages/Tariffs/Tariffs';
 import { isAuthenticatedAtom } from './atoms';
 import { useAtom } from 'jotai';
 import './scss/app.scss';
@@ -49,6 +50,14 @@ const App = () => {
             element={
               <Layout>
                 <Incidents />
+              </Layout>
+            }
+          />
+          <Route
+            path="/tariffs"
+            element={
+              <Layout>
+                <Tariffs />
               </Layout>
             }
           />

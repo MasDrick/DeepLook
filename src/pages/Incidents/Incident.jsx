@@ -31,20 +31,8 @@ const Incidents = () => {
           onClick={handleRefresh}
         />
       </div>
-      {isData ? (
-        <IncidentTable />
-      ) : (
-        <div className={s.emptyContainer}>
-          <div className={`${s.empty} w-3/5 h-3/5`}>
-            <Empty description="">
-              <p className="text-white text-center font-medium uppercase mb-4">Нет данных</p>
-              <Button size="medium" type="primary">
-                <Link to="/">На главную</Link>
-              </Button>
-            </Empty>
-          </div>
-        </div>
-      )}
+
+      <IncidentTable />
     </div>
   );
 };

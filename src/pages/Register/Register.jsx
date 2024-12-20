@@ -113,6 +113,11 @@ const Register = () => {
                 }`}
                 placeholder="Повторите пароль"
               />
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-400">
+                {showPassword ? <EyeClosed size={16} /> : <Eye size={16} />}
+              </span>
             </div>
             {errors.confirmPassword && (
               <p className="text-red-500 text-xs mt-1">{errors.confirmPassword.message}</p>

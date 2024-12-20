@@ -5,7 +5,7 @@ import { useAtom } from 'jotai';
 import { isAuthenticatedAtom } from '../../atoms';
 import { Link, useNavigate } from 'react-router';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { Eye, EyeClosed } from 'lucide-react';
+import { Eye, EyeClosed, KeyRound } from 'lucide-react';
 
 import s from './login.module.scss';
 
@@ -97,21 +97,18 @@ const Login = () => {
               <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>
             )}
           </div>
-          <div className="flex items-center justify-between">
-            <Checkbox
-              checked={remember}
-              onChange={() => setRemember(!remember)}
-              className="text-gray-700">
-              Запомнить меня
-            </Checkbox>
-            <a className="text-sm text-blue-500 hover:underline" href="">
-              Забыли пароль?
-            </a>
-          </div>
           <div>
             <Button type="primary" htmlType="submit" className="w-full py-2" disabled={!isValid}>
               Войти
             </Button>
+
+            <a
+              className="flex items-center gap-1 mt-4 text-sm text-blue-500 hover:underline"
+              href="">
+              <KeyRound size={18} />
+              Забыли пароль?
+            </a>
+
             <p className="text-center text-sm text-gray-700 mt-4">
               Еще нет аккаунта?{' '}
               <Link to="/register" className="text-blue-500 hover:underline">

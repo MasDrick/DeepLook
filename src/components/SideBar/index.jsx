@@ -1,14 +1,18 @@
-import React from 'react';
-import { useLocation } from 'react-router';
+import React, { useEffect, useState } from 'react';
 import s from './sidebar.module.scss';
-import { Link } from 'react-router';
-import { LayoutDashboard, ShieldAlert, Settings, ChartLine, CircleX, LogOut } from 'lucide-react';
-import { useAtom } from 'jotai';
-import { activeTabAtom } from '../../atoms';
+import { Link, useLocation } from 'react-router';
+import {
+  LayoutDashboard,
+  ShieldAlert,
+  Settings,
+  ChartLine,
+  CircleX,
+  LogOut,
+  CircleDollarSign,
+} from 'lucide-react';
 
 const SideBar = () => {
   const location = useLocation();
-  const [, setActive] = useAtom(activeTabAtom);
 
   const menuItems = [
     {
@@ -27,6 +31,11 @@ const SideBar = () => {
       link: '/incidents',
     },
     {
+      title: 'Тарифы',
+      icon: <CircleDollarSign size={20} />,
+      link: '/tariffs',
+    },
+    {
       title: 'Настройки',
       icon: <Settings size={20} />,
       link: '/settings',
@@ -38,7 +47,20 @@ const SideBar = () => {
     },
   ];
 
-  const activeIndex = menuItems.findIndex((item) => item.link === location.pathname);
+  const currentPath = location.pathname;
+  const initialActiveIndex = menuItems.findIndex((item) => item.link === currentPath);
+  const [active, setActive] = useState(initialActiveIndex);
+
+  useEffect(() => {
+    const currentIndex = menuItems.findIndex((item) => item.link === currentPath);
+    if (currentIndex !== -1 && currentIndex !== active) {
+      setActive(currentIndex);
+    }
+  }, [currentPath, active]);
+
+  const handleTabClick = (index) => {
+    setActive(index);
+  };
 
   return (
     <div
@@ -47,13 +69,13 @@ const SideBar = () => {
       role="dialog"
       tabIndex={-1}
       aria-label="Sidebar">
-      <div className="px-6">
+      <div className="px-6 flex items-center">
+        <img src="/img/logo.svg" alt="Logo" className="h-8 w-8 mr-3" />
         <Link
-          className="flex items-center gap-2 font-semibold text-2xl text-center focus:outline-none focus:opacity-80 text-white"
+          className="font-semibold text-2xl focus:outline-none focus:opacity-80 text-white"
           to="/"
           aria-label="Brand"
           onClick={() => setActive(0)}>
-          <img width={40} src="/img/Logo.svg" alt="logo" />
           DeepLook
         </Link>
       </div>
@@ -64,8 +86,8 @@ const SideBar = () => {
           {menuItems.map((item, i) => (
             <li key={item.title}>
               <Link
-                onClick={() => setActive(i)}
-                className={`${activeIndex === i ? s.active : ''} ${s.categories}`}
+                onClick={() => handleTabClick(i)}
+                className={`${active === i ? s.active : ''} ${s.categories}`}
                 to={item.link}>
                 {item.icon}
                 {item.title}
@@ -73,12 +95,7 @@ const SideBar = () => {
             </li>
           ))}
         </ul>
-        <Link
-          className={s.categories}
-          to="/login"
-          onClick={() => {
-            localStorage.setItem('isAuthenticated', 'false');
-          }}>
+        <Link className={s.categories} to="/login">
           Выйти
           <LogOut size={20} />
         </Link>

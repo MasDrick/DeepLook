@@ -1,6 +1,6 @@
 import React from 'react';
 import { Empty, Button, ConfigProvider, Table, Tag } from 'antd';
-import { CircleArrowRight, ArrowDownUp } from 'lucide-react';
+import { CircleArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
 
 import { useAtom } from 'jotai';
@@ -16,8 +16,6 @@ const HomeTable = () => {
   const [, setOpen] = useAtom(modalAtom);
 
   const { Column } = Table;
-
-  const isIncident = true;
 
   const lastFiveData = data.slice(-5);
 
@@ -35,7 +33,7 @@ const HomeTable = () => {
         </button>
       </nav>
       <div className={s.table}>
-        {isIncident ? (
+        {lastFiveData.length > 0 ? (
           <ConfigProvider
             theme={{
               components: {
@@ -49,7 +47,11 @@ const HomeTable = () => {
                 },
               },
             }}>
-            <Table dataSource={lastFiveData} pagination={false} className={s.table}>
+            <Table
+              dataSource={lastFiveData}
+              pagination={false}
+              className={s.table}
+              style={{ flexGrow: 1 }}>
               <Column
                 title="Статус"
                 dataIndex="status"
