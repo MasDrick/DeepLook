@@ -1,0 +1,122 @@
+[
+  {
+    "key": "1",
+    "status": ["Решено", "green"],
+    "name": "YouTube",
+    "reason": "403 Forbidden",
+    "first": "28.03.2025",
+    "duration": "10:00"
+  },
+  {
+    "key": "2",
+    "status": ["Решено", "green"],
+    "name": "VK",
+    "reason": "403 Forbidden",
+    "first": "27.03.2025",
+    "duration": "15:30"
+  },
+  {
+    "key": "3",
+    "status": ["Не решено", "volcano"],
+    "name": "Ant Design",
+    "reason": "Таймаут подключения",
+    "first": "26.03.2025",
+    "duration": "05:45"
+  },
+  {
+    "key": "4",
+    "status": ["Не решено", "volcano"],
+    "name": "Google",
+    "reason": "403 Forbidden",
+    "first": "25.03.2025",
+    "duration": "20:00"
+  },
+  {
+    "key": "5",
+    "status": ["Решено", "green"],
+    "name": "Facebook",
+    "reason": "403 Forbidden",
+    "first": "24.03.2025",
+    "duration": "12:15"
+  },
+  {
+    "key": "6",
+    "status": ["Не решено", "volcano"],
+    "name": "Twitter",
+    "reason": "500 Internal Server Error",
+    "first": "23.03.2025",
+    "duration": "08:30"
+  },
+  {
+    "key": "7",
+    "status": ["Не решено", "volcano"],
+    "name": "LinkedIn",
+    "reason": "Таймаут подключения",
+    "first": "22.03.2025",
+    "duration": "14:00"
+  },
+  {
+    "key": "8",
+    "status": ["Не решено", "volcano"],
+    "name": "Instagram",
+    "reason": "Таймаут подключения",
+    "first": "21.03.2025",
+    "duration": "09:45"
+  },
+  {
+    "key": "9",
+    "status": ["Решен", "green"],
+    "name": "Reddit",
+    "reason": "500 Internal Server Error",
+    "first": "20.03.2025",
+    "duration": "11:30"
+  },
+  {
+    "key": "10",
+    "status": ["Решен", "green"],
+    "name": "Pinterest",
+    "reason": "403 Forbidden",
+    "first": "19.03.2025",
+    "duration": "07:00"
+  },
+  {
+    "key": "11",
+    "status": ["Решен", "green"],
+    "name": "Snapchat",
+    "reason": "403 Forbidden",
+    "first": "18.03.2025",
+    "duration": "13:20"
+  },
+  {
+    "key": "12",
+    "status": ["Решен", "green"],
+    "name": "TikTok",
+    "reason": "403 Forbidden",
+    "first": "17.03.2025",
+    "duration": "16:45"
+  },
+  {
+    "key": "13",
+    "status": ["Решен", "green"],
+    "name": "WhatsApp",
+    "reason": "403 Forbidden",
+    "first": "16.03.2025",
+    "duration": "18:00"
+  },
+  {
+    "key": "14",
+    "status": ["Не решено", "volcano"],
+    "name": "Telegram",
+    "reason": "403 Forbidden",
+    "first": "15.03.2025",
+    "duration": "06:30"
+  },
+  {
+    "key": "15",
+    "status": ["Не решено", "volcano"],
+    "name": "WeChat",
+    "reason": "403 Forbidden",
+    "first": "14.03.2025",
+    "duration": "19:15"
+  }
+]

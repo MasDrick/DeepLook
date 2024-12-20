@@ -1,17 +1,25 @@
 import React from 'react';
-import { Empty, Button } from 'antd';
-import { CircleArrowRight } from 'lucide-react';
+import { Empty, Button, ConfigProvider, Table, Tag } from 'antd';
+import { CircleArrowRight, ArrowDownUp } from 'lucide-react';
 import { Link } from 'react-router';
 
 import { useAtom } from 'jotai';
 import { activeTabAtom } from '../../atoms';
 import { modalAtom } from '../../atoms';
 
+import data from '../../dataIncident.json';
+
 import s from './hometable.module.scss';
 
 const HomeTable = () => {
   const [, setActive] = useAtom(activeTabAtom);
   const [, setOpen] = useAtom(modalAtom);
+
+  const { Column } = Table;
+
+  const isIncident = true;
+
+  const lastFiveData = data.slice(-5);
 
   return (
     <div className={s.container}>
@@ -27,14 +35,56 @@ const HomeTable = () => {
         </button>
       </nav>
       <div className={s.table}>
-        <div className={`${s.empty} w-full h-full`}>
-          <Empty description="">
-            <p className="text-white text-center font-medium uppercase mb-4">Нет данных</p>
-            <Button onClick={() => setOpen(true)} size="medium" type="primary">
-              Создать
-            </Button>
-          </Empty>
-        </div>
+        {isIncident ? (
+          <ConfigProvider
+            theme={{
+              components: {
+                Table: {
+                  headerBg: '#0068a8',
+                  headerColor: '#fff',
+                  headerBorderRadius: 0,
+                  rowHoverBg: '#e6f0f6',
+                  headerSortActiveBg: '#0068a8',
+                  headerSortHoverBg: '#0076c0',
+                },
+              },
+            }}>
+            <Table dataSource={lastFiveData} pagination={false} className={s.table}>
+              <Column
+                title="Статус"
+                dataIndex="status"
+                key="status"
+                showSorterTooltip={false}
+                render={(tag) => {
+                  const [status, color] = tag;
+                  return (
+                    <Tag color={color} key={status}>
+                      {status.toUpperCase()}
+                    </Tag>
+                  );
+                }}
+              />
+              <Column title="Монитор" dataIndex="name" key="name" showSorterTooltip={false} />
+              <Column title="Причина" dataIndex="reason" key="reason" showSorterTooltip={false} />
+              <Column title="Начало" dataIndex="first" key="first" showSorterTooltip={false} />
+              <Column
+                title="Длительность"
+                dataIndex="duration"
+                key="duration"
+                showSorterTooltip={false}
+              />
+            </Table>
+          </ConfigProvider>
+        ) : (
+          <div className={`${s.empty} w-full h-full`}>
+            <Empty description="">
+              <p className="text-white text-center font-medium uppercase mb-4">Нет данных</p>
+              <Button onClick={() => setOpen(true)} size="medium" type="primary">
+                Создать
+              </Button>
+            </Empty>
+          </div>
+        )}
       </div>
     </div>
   );

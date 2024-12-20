@@ -23,7 +23,6 @@
     "key": "3",
     "name": "Ant Design",
     "URL": "https://ant.design",
-
     "time": 5,
     "tag": ["Пауза", "geekblue"],
     "lastResult": ["403", "cyan"],
@@ -32,122 +31,122 @@
   },
   {
     "key": "4",
-    "name": "Google",
-    "URL": "https://google.com",
-    "time": 5,
-    "tag": ["Пауза", "geekblue"],
-    "lastResult": ["403", "cyan"],
-    "SSL": "29.03.2025",
-    "domain": "06.12.2024"
+    "name": "Stack Overflow",
+    "URL": "https://stackoverflow.com",
+    "time": 15,
+    "tag": ["Активен", "green"],
+    "lastResult": ["200 OK", "green"],
+    "SSL": "15.04.2025",
+    "domain": "10.11.2024"
   },
   {
     "key": "5",
-    "name": "Google",
-    "URL": "https://google.com",
-    "time": 5,
-    "tag": ["Пауза", "geekblue"],
-    "lastResult": ["403", "cyan"],
-    "SSL": "29.03.2025",
-    "domain": "06.12.2024"
+    "name": "Reddit",
+    "URL": "https://www.reddit.com",
+    "time": 45,
+    "tag": ["Активен", "green"],
+    "lastResult": ["200 OK", "green"],
+    "SSL": "01.05.2025",
+    "domain": "20.12.2024"
   },
   {
     "key": "6",
-    "name": "Google",
-    "URL": "https://google.com",
-    "time": 5,
+    "name": "Twitter",
+    "URL": "https://twitter.com",
+    "time": 25,
     "tag": ["Пауза", "geekblue"],
     "lastResult": ["403", "cyan"],
-    "SSL": "29.03.2025",
-    "domain": "06.12.2024"
+    "SSL": "30.06.2025",
+    "domain": "15.01.2025"
   },
   {
     "key": "7",
-    "name": "Google",
-    "URL": "https://google.com",
-    "time": 5,
-    "tag": ["Пауза", "geekblue"],
-    "lastResult": ["403", "cyan"],
-    "SSL": "29.03.2025",
-    "domain": "06.12.2024"
+    "name": "LinkedIn",
+    "URL": "https://www.linkedin.com",
+    "time": 10,
+    "tag": ["Активен", "green"],
+    "lastResult": ["200 OK", "green"],
+    "SSL": "12.07.2025",
+    "domain": "25.02.2025"
   },
   {
     "key": "8",
-    "name": "Google",
-    "URL": "https://google.com",
-    "time": 5,
+    "name": "Facebook",
+    "URL": "https://www.facebook.com",
+    "time": 50,
     "tag": ["Пауза", "geekblue"],
     "lastResult": ["403", "cyan"],
-    "SSL": "29.03.2025",
-    "domain": "06.12.2024"
+    "SSL": "18.08.2025",
+    "domain": "30.03.2025"
   },
   {
     "key": "9",
-    "name": "Google",
-    "URL": "https://google.com",
-    "time": 5,
-    "tag": ["Пауза", "geekblue"],
-    "lastResult": ["403", "cyan"],
-    "SSL": "29.03.2025",
-    "domain": "06.12.2024"
+    "name": "Instagram",
+    "URL": "https://www.instagram.com",
+    "time": 20,
+    "tag": ["Активен", "green"],
+    "lastResult": ["200 OK", "green"],
+    "SSL": "22.09.2025",
+    "domain": "05.04.2025"
   },
   {
     "key": "10",
-    "name": "Google",
-    "URL": "https://google.com",
-    "time": 5,
+    "name": "Netflix",
+    "URL": "https://www.netflix.com",
+    "time": 35,
     "tag": ["Пауза", "geekblue"],
     "lastResult": ["403", "cyan"],
-    "SSL": "29.03.2025",
-    "domain": "06.12.2024"
+    "SSL": "29.10.2025",
+    "domain": "10.05.2025"
   },
   {
     "key": "11",
-    "name": "Google",
-    "URL": "https://google.com",
-    "time": 5,
-    "tag": ["Пауза", "geekblue"],
-    "lastResult": ["403", "cyan"],
-    "SSL": "29.03.2025",
-    "domain": "06.12.2024"
+    "name": "Pinterest",
+    "URL": "https://www.pinterest.com",
+    "time": 40,
+    "tag": ["Активен", "green"],
+    "lastResult": ["200 OK", "green"],
+    "SSL": "15.11.2025",
+    "domain": "01.06.2025"
   },
   {
     "key": "12",
-    "name": "Google",
-    "URL": "https://google.com",
-    "time": 5,
+    "name": "Quora",
+    "URL": "https://www.quora.com",
+    "time": 22,
     "tag": ["Пауза", "geekblue"],
     "lastResult": ["403", "cyan"],
-    "SSL": "29.03.2025",
-    "domain": "06.12.2024"
+    "SSL": "20.12.2025",
+    "domain": "15.07.2025"
   },
   {
     "key": "13",
-    "name": "Google",
-    "URL": "https://google.com",
-    "time": 5,
-    "tag": ["Пауза", "geekblue"],
-    "lastResult": ["403", "cyan"],
-    "SSL": "29.03.2025",
-    "domain": "06.12.2024"
+    "name": "Twitch",
+    "URL": "https://www.twitch.tv",
+    "time": 55,
+    "tag": ["Активен", "green"],
+    "lastResult": ["200 OK", "green"],
+    "SSL": "05.01.2026",
+    "domain": "10.08.2025"
   },
   {
     "key": "14",
-    "name": "Google",
-    "URL": "https://google.com",
-    "time": 5,
+    "name": "Medium",
+    "URL": "https://www.medium.com",
+    "time": 18,
     "tag": ["Пауза", "geekblue"],
     "lastResult": ["403", "cyan"],
-    "SSL": "29.03.2025",
-    "domain": "06.12.2024"
+    "SSL": "25.02.2026",
+    "domain": "20.09.2025"
   },
   {
     "key": "15",
-    "name": "Google",
-    "URL": "https://google.com",
-    "time": 5,
-    "tag": ["Пауза", "geekblue"],
-    "lastResult": ["403", "cyan"],
-    "SSL": "29.03.2025",
-    "domain": "06.12.2024"
+    "name": "Spotify",
+    "URL": "https://www.spotify.com",
+    "time": 30,
+    "tag": ["Активен", "green"],
+    "lastResult": ["200 OK", "green"],
+    "SSL": "10.03.2026",
+    "domain": "05.10.2025"
   }
 ]

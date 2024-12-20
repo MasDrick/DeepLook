@@ -121,7 +121,11 @@ const MonitorTable = () => {
           title="SSL годен до"
           dataIndex="SSL"
           key="SSL"
-          sorter={(a, b) => new Date(a.SSL) - new Date(b.SSL)}
+          sorter={(a, b) => {
+            const dateA = new Date(a.SSL.split('.').reverse().join('-'));
+            const dateB = new Date(b.SSL.split('.').reverse().join('-'));
+            return dateA - dateB;
+          }}
           sortIcon={({ sortOrder }) => (
             <ArrowDownUp
               size={16}
@@ -134,7 +138,11 @@ const MonitorTable = () => {
           title="Домен зарегистрирован до"
           dataIndex="domain"
           key="domain"
-          sorter={(a, b) => new Date(a.domain) - new Date(b.domain)}
+          sorter={(a, b) => {
+            const dateA = new Date(a.domain.split('.').reverse().join('-'));
+            const dateB = new Date(b.domain.split('.').reverse().join('-'));
+            return dateA - dateB;
+          }}
           sortIcon={({ sortOrder }) => (
             <ArrowDownUp
               size={16}
