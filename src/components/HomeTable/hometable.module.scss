@@ -4,8 +4,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
-  height: auto;
+  width: min(90%, 65rem);
+  height: 50vh;
   background: linear-gradient(to bottom, $normal 50%, $normalhover 50%);
 
   border-radius: 1rem;

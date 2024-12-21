@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import AddUrl, { urlAtom, shortNameAtom, intervalAtom } from '../AddUrl';
 import s from './tracking.module.scss';
-import { Button, Modal, message } from 'antd';
+import { Button, Modal, message, Progress, ConfigProvider } from 'antd';
 import { atom, useAtom } from 'jotai';
 import { modalAtom } from '../../atoms';
-
+import { Link } from 'react-router';
 // Создаем атом для хранения состояния модального окна
 
-const green = '#4ca600';
+const green = '#73d13d';
 const red = '#ff4d4f';
-const yellow = '#ffc107';
+const yellow = '#ffec3d';
 
 const Tracking = () => {
   const [open, setOpen] = useAtom(modalAtom);
@@ -34,6 +34,17 @@ const Tracking = () => {
       type: 'success',
       content: 'Успешно добавлено',
     });
+  };
+
+  const twoGreen = {
+    '0%': '#52c41a',
+    '100%': '#95de64',
+  };
+
+  const twoRed = {
+    '0%': '#ff4d4f',
+    '20%': '#ff7875',
+    '100%': '#ff7875',
   };
 
   return (
@@ -68,8 +79,44 @@ const Tracking = () => {
       </Modal>
       <section>
         <div className={s.card}>
-          <h2>URL</h2>
-          <p>Статус</p>
+          <ConfigProvider
+            theme={{
+              components: {
+                Progress: {
+                  circleTextFontSize: '2.5rem',
+                  circleTextColor: '#fff',
+                  defaultColor: green,
+                  colorBgContainer: '#fff',
+                },
+              },
+            }}>
+            <div className={s.progress}>
+              <Link to="/monitoring">
+                <Progress
+                  size={150}
+                  strokeWidth={8}
+                  type="dashboard"
+                  percent={90}
+                  strokeColor={twoGreen}
+                />
+              </Link>
+
+              <p>Исправные</p>
+            </div>
+            <div className={s.progress}>
+              <Link to="/incidents">
+                <Progress
+                  size={150}
+                  strokeWidth={8}
+                  type="dashboard"
+                  percent={10}
+                  strokeColor={twoRed}
+                  format={() => '2'}
+                />
+              </Link>
+              <p>Проблемы</p>
+            </div>
+          </ConfigProvider>
         </div>
       </section>
       <div className={s.footer}>

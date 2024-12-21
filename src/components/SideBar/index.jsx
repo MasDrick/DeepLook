@@ -9,6 +9,7 @@ import {
   CircleX,
   LogOut,
   CircleDollarSign,
+  MonitorCog,
 } from 'lucide-react';
 
 import { useAtom } from 'jotai';
@@ -35,10 +36,16 @@ const SideBar = () => {
       link: '/incidents',
     },
     {
+      title: 'Детали',
+      icon: <MonitorCog size={20} />,
+      link: '/фыва',
+    },
+    {
       title: 'Тарифы',
       icon: <CircleDollarSign size={20} />,
       link: '/tariffs',
     },
+
     {
       title: 'Настройки',
       icon: <Settings size={20} />,

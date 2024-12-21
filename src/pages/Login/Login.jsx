@@ -23,6 +23,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [remember, setRemember] = useState(false);
 
+  const [loadingBtn, setLoadingBtn] = useState(false);
+
   useEffect(() => {
     document.title = 'Авторизация';
 
@@ -34,9 +36,7 @@ const Login = () => {
   }, [setValue]);
 
   const onSubmit = (data) => {
-    console.log('Received values of form: ', data);
-    console.log('Form is valid:', isValid);
-    console.log('Remember me:', remember);
+    setLoadingBtn(true);
     setIsAuthenticated(true);
     localStorage.setItem('isAuthenticated', 'true');
 
@@ -48,9 +48,8 @@ const Login = () => {
         rememberMe: remember,
       }),
     );
-    console.log(remember ? 'Данные сохранены в localStorage' : 'Данные удалены из localStorage');
 
-    navigate('/'); // Перенаправление на главную страницу
+    setTimeout(() => navigate('/'), 2000); // Перенаправление на главную страницу с задержкой 2 секунды
   };
   <div className={s.logo}>
     <img src="/img/logo.svg" alt="Logo" />
@@ -107,7 +106,12 @@ const Login = () => {
               )}
             </div>
             <div>
-              <Button type="primary" htmlType="submit" className="w-full py-2" disabled={!isValid}>
+              <Button
+                loading={loadingBtn}
+                type="primary"
+                htmlType="submit"
+                className="w-full py-2"
+                disabled={!isValid}>
                 Войти
               </Button>
 

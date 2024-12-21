@@ -17,7 +17,7 @@ const HomeTable = () => {
 
   const { Column } = Table;
 
-  const lastFiveData = data.slice(-5);
+  const lastFiveData = data.slice(-6);
 
   return (
     <div className={s.container}>

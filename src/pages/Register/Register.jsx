@@ -18,19 +18,21 @@ const Register = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [passwordError, setPasswordError] = useState('');
+  const [loadingBtn, setLoadingBtn] = useState(false);
 
   React.useEffect(() => {
     document.title = 'Регистрация';
   }, []);
 
   const onSubmit = (data) => {
+    setLoadingBtn(true);
     const { password, confirmPassword } = data;
     if (password !== confirmPassword) {
       setPasswordError('Пароли не совпадают!');
     } else {
       setPasswordError('');
       console.log('Received values of form: ', data);
-      navigate('/login');
+      setTimeout(() => navigate('/login'), 2000); // Перенаправление на главную страницу с задержкой 2 секунды
     }
   };
 
@@ -130,7 +132,12 @@ const Register = () => {
               {passwordError && <p className="text-red-500 text-xs mt-1">{passwordError}</p>}
             </div>
             <div>
-              <Button type="primary" htmlType="submit" className="w-full py-2" disabled={!isValid}>
+              <Button
+                loading={loadingBtn}
+                type="primary"
+                htmlType="submit"
+                className="w-full py-2"
+                disabled={!isValid}>
                 Зарегистрироваться
               </Button>
             </div>
