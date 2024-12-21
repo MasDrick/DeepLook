@@ -28,7 +28,11 @@ const HomeTable = () => {
           onClick={() => setActive(2)}>
           <Link to="/incidents" className="flex items-center">
             Все инциденты
-            <CircleArrowRight size={18} style={{ marginLeft: '10px' }} />
+            <CircleArrowRight
+              size={18}
+              style={{ marginLeft: '7px', transition: 'transform 0.3s ease' }}
+              className={s.circleArrow}
+            />
           </Link>
         </button>
       </nav>

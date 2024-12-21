@@ -33,6 +33,10 @@
 
       &:hover {
         border-color: $light;
+
+        .circleArrow {
+          transform: translateX(3px);
+        }
       }
     }
   }

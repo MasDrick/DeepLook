@@ -35,9 +35,6 @@
   border-color: $white;
   width: 16rem;
   background-color: $normalhover;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
 }
 .mainLayout {
   flex: 1;
@@ -45,4 +42,7 @@
   padding: 20px;
   margin-left: 16rem; // добавляем отступ равный ширине сайдбара
   background-color: $light;
+  @media (max-width: 1060px) {
+    margin-left: 4rem;
+  }
 }

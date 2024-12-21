@@ -11,8 +11,12 @@ import {
   CircleDollarSign,
 } from 'lucide-react';
 
+import { useAtom } from 'jotai';
+import { isAuthenticatedAtom } from '../../atoms/';
+
 const SideBar = () => {
   const location = useLocation();
+  const [, setIsAuthenticated] = useAtom(isAuthenticatedAtom);
 
   const menuItems = [
     {
@@ -69,19 +73,17 @@ const SideBar = () => {
       role="dialog"
       tabIndex={-1}
       aria-label="Sidebar">
-      <div className="px-6 flex items-center">
-        <img src="/img/logo.svg" alt="Logo" className="h-8 w-8 mr-3" />
+      <div className={s.logo}>
         <Link
-          className="font-semibold text-2xl focus:outline-none focus:opacity-80 text-white"
+          className="flex items-center font-semibold text-2xl focus:outline-none focus:opacity-80 text-white"
           to="/"
           aria-label="Brand"
           onClick={() => setActive(0)}>
-          DeepLook
+          <img src="/img/logo.svg" alt="Logo" />
+          <span>DeepLook</span>
         </Link>
       </div>
-      <nav
-        className="hs-accordion-group p-6 w-full flex flex-col flex-wrap justify-between h-full mt-16"
-        data-hs-accordion-always-open="">
+      <nav className={s.navigate} data-hs-accordion-always-open="">
         <ul className="space-y-1.5">
           {menuItems.map((item, i) => (
             <li key={item.title}>
@@ -90,13 +92,13 @@ const SideBar = () => {
                 className={`${active === i ? s.active : ''} ${s.categories}`}
                 to={item.link}>
                 {item.icon}
-                {item.title}
+                <span className="hidden md:inline">{item.title}</span>
               </Link>
             </li>
           ))}
         </ul>
-        <Link className={s.categories} to="/login">
-          Выйти
+        <Link onClick={() => setIsAuthenticated(false)} className={s.categories} to="/login">
+          <span>Выйти</span>
           <LogOut size={20} />
         </Link>
       </nav>

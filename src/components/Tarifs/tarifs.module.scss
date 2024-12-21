@@ -1,16 +1,16 @@
 @use '../../scss/variables' as *;
-@use "sass:color";
+@use 'sass:color';
 
 .tariffsContainer {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  gap: 30px;
+  gap: 50px;
   padding: 40px 20px;
-  min-height: 100vh;
+  min-height: 300px;
   flex-wrap: wrap;
   background: $light;
-  
+
   @media (max-width: 768px) {
     gap: 20px;
     padding: 20px;
@@ -20,7 +20,7 @@
 .tariffCard {
   background-color: $white;
   border-radius: 20px;
-  width: 360px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -28,7 +28,7 @@
   box-shadow: 0 8px 24px rgba($dark, 0.08);
   overflow: hidden;
   border: 2px solid transparent;
-  
+
   &:hover {
     transform: translateY(-15px);
     box-shadow: 0 20px 40px rgba($dark, 0.12);
@@ -39,11 +39,11 @@
   border-color: $normal;
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 20px 40px rgba($normal, 0.15);
-  
+
   .tariffHeader {
     background: linear-gradient(135deg, $normal, color.adjust($normal, $lightness: -15%));
   }
-  
+
   .checkIcon {
     color: $normal;
   }
@@ -55,7 +55,7 @@
   text-align: center;
   color: $white;
   transition: all 0.3s ease;
-  
+
   h3 {
     margin: 0;
     font-size: 1.75rem;
@@ -92,13 +92,13 @@
   flex-grow: 1;
   padding: 30px 25px;
   background: $white;
-  
+
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  
+
   li {
     display: flex;
     align-items: flex-start;
@@ -108,7 +108,7 @@
     color: $dark;
     font-size: 1rem;
     line-height: 1.5;
-    
+
     &:last-child {
       border-bottom: none;
     }
@@ -141,12 +141,12 @@
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
-  
+
   &:hover {
     background: color.adjust($normal, $lightness: -5%);
     transform: translateY(-2px);
   }
-  
+
   &:active {
     background: color.adjust($normal, $lightness: -10%);
     transform: translateY(0);
@@ -155,11 +155,11 @@
 
 .activeButton {
   background: $dark;
-  
+
   &:hover {
     background: color.adjust($dark, $lightness: -5%);
   }
-  
+
   &:active {
     background: color.adjust($dark, $lightness: -10%);
   }

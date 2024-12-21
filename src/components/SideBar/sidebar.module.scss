@@ -12,13 +12,35 @@
   border-color: $white;
   width: 16rem;
   background-color: $normalhover;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-  transition-duration: 300ms;
+
+  @media (max-width: 1060px) {
+    width: 4rem;
+    padding-top: 1rem;
+  }
 }
 .logo {
   display: flex;
+  padding: 0 1.5rem 0;
+  align-items: center;
+
+  span {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 5px;
+  }
+
+  img {
+    width: 36px;
+    height: 36px;
+  }
+
+  @media (max-width: 1060px) {
+    justify-content: center;
+    padding: 0.75rem;
+    span {
+      display: none;
+    }
+  }
 }
 .categories {
   display: flex;
@@ -33,13 +55,38 @@
   line-height: 1.25rem;
   color: $white;
   background-color: $normalhover;
-  transition: all 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+
+  @media (max-width: 1060px) {
+    span {
+      display: none;
+    }
+  }
 
   &:hover {
     background-color: $normal;
+  }
+
+  @media (max-width: 1060px) {
+    justify-content: center;
+    font-size: 0;
   }
 }
 
 .active {
   background: $normal;
+}
+.navigate {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%; /* w-full */
+  height: 100%; /* h-full */
+  margin-top: 4rem; /* mt-16, 1rem = 16px, 4rem = 64px */
+  padding: 1.5rem;
+
+  @media (max-width: 1060px) {
+    padding: 0.75rem;
+  }
 }
