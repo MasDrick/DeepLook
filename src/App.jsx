@@ -11,6 +11,7 @@ import Monitoring from './pages/Monitoring/Monitoring';
 import Settings from './pages/Settings/Settings';
 import NotFound from './pages/NotFound/NotFound';
 import Incidents from './pages/Incidents/Incident';
+import Details from './pages/Details/Details';
 import Tariffs from './pages/Tariffs/Tariffs';
 
 import { isAuthenticatedAtom } from './atoms';
@@ -56,6 +57,14 @@ const App = () => {
             element={
               <Layout>
                 <Incidents />
+              </Layout>
+            }
+          />
+          <Route
+            path="/details/:key"
+            element={
+              <Layout>
+                <Details />
               </Layout>
             }
           />

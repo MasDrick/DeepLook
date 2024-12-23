@@ -13,7 +13,7 @@
   width: 16rem;
   background-color: $normalhover;
 
-  @media (max-width: 1060px) {
+  @media (max-width: 1280px) {
     width: 4rem;
     padding-top: 1rem;
   }
@@ -34,7 +34,7 @@
     height: 36px;
   }
 
-  @media (max-width: 1060px) {
+  @media (max-width: 1280px) {
     justify-content: center;
     padding: 0.75rem;
     span {
@@ -57,7 +57,7 @@
   background-color: $normalhover;
   transition: background-color 0.3s ease-in-out;
 
-  @media (max-width: 1060px) {
+  @media (max-width: 1280px) {
     span {
       display: none;
     }
@@ -67,7 +67,7 @@
     background-color: $normal;
   }
 
-  @media (max-width: 1060px) {
+  @media (max-width: 1280px) {
     justify-content: center;
     font-size: 0;
   }
@@ -86,7 +86,7 @@
   margin-top: 4rem; /* mt-16, 1rem = 16px, 4rem = 64px */
   padding: 1.5rem;
 
-  @media (max-width: 1060px) {
+  @media (max-width: 1280px) {
     padding: 0.75rem;
   }
 }

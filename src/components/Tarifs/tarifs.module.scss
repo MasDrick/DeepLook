@@ -1,12 +1,19 @@
 @use '../../scss/variables' as *;
 @use 'sass:color';
 
+.tarrifsLayout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .tariffsContainer {
   display: flex;
   justify-content: center;
   align-items: stretch;
   gap: 50px;
-  padding: 40px 20px;
+  // padding: 40px 20px;
   min-height: 300px;
   flex-wrap: wrap;
   background: $light;

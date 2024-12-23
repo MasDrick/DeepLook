@@ -3,18 +3,11 @@ import { Empty, Button, ConfigProvider, Table, Tag } from 'antd';
 import { CircleArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
 
-import { useAtom } from 'jotai';
-import { activeTabAtom } from '../../atoms';
-import { modalAtom } from '../../atoms';
-
 import data from '../../dataIncident.json';
 
 import s from './hometable.module.scss';
 
 const HomeTable = () => {
-  const [, setActive] = useAtom(activeTabAtom);
-  const [, setOpen] = useAtom(modalAtom);
-
   const { Column } = Table;
 
   const lastFiveData = data.slice(-6);
@@ -23,9 +16,7 @@ const HomeTable = () => {
     <div className={s.container}>
       <nav>
         <h1>Последние инциденты</h1>
-        <button
-          className={`flex items-center gap-2 rounded-lg ${s.customButton}`}
-          onClick={() => setActive(2)}>
+        <button className={`flex items-center gap-2 rounded-lg ${s.customButton}`}>
           <Link to="/incidents" className="flex items-center">
             Все инциденты
             <CircleArrowRight
@@ -85,9 +76,6 @@ const HomeTable = () => {
           <div className={`${s.empty} w-full h-full`}>
             <Empty description="">
               <p className="text-white text-center font-medium uppercase mb-4">Нет данных</p>
-              <Button onClick={() => setOpen(true)} size="medium" type="primary">
-                Создать
-              </Button>
             </Empty>
           </div>
         )}

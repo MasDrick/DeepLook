@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import AddUrl, { urlAtom, shortNameAtom, intervalAtom } from '../AddUrl';
-import s from './tracking.module.scss';
+import { useAtom } from 'jotai';
 import { Button, Modal, message, Progress, ConfigProvider } from 'antd';
-import { atom, useAtom } from 'jotai';
-import { modalAtom } from '../../atoms';
+import { CirclePlus, CirclePause } from 'lucide-react';
 import { Link } from 'react-router';
+
+import AddUrl, { urlAtom, shortNameAtom, intervalAtom, favoriteAtom } from '../AddUrl';
+import { modalAtom } from '../../atoms';
+import s from './tracking.module.scss';
 // Создаем атом для хранения состояния модального окна
 
 const green = '#73d13d';
@@ -16,6 +18,7 @@ const Tracking = () => {
   const [url, setUrl] = useAtom(urlAtom);
   const [shortName, setShortName] = useAtom(shortNameAtom);
   const [interval, setInterval] = useAtom(intervalAtom);
+  const [favorite, setFavorite] = useAtom(favoriteAtom);
   const [isFormValid, setIsFormValid] = useState(false);
 
   const [messageApi, contextHolder] = message.useMessage();
@@ -24,10 +27,12 @@ const Tracking = () => {
     console.log('URL:', url);
     console.log('Короткое название:', shortName);
     console.log('Интервал проверки:', interval);
+    console.log('Избранное:', favorite);
 
     setUrl('');
     setShortName('');
     setInterval('');
+    setFavorite(false);
 
     setOpen(false);
     messageApi.open({
@@ -56,7 +61,7 @@ const Tracking = () => {
           onClick={() => setOpen(true)}
           className={`flex items-center gap-2 rounded-lg ${s.customButton}`}>
           Добавить URL
-          <img src="/img/add.svg" alt="add" />
+          <CirclePlus size={18} className={s.circlePlus} />
         </button>
       </header>
       <Modal
@@ -140,7 +145,8 @@ const Tracking = () => {
         <div className={s.suspended}>
           <h2>Приостановлены</h2>
           <div className={s.pause}>
-            <p>Выключить мониторинг</p>
+            <p>5</p>
+            <CirclePause />
           </div>
         </div>
       </div>

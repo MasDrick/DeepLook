@@ -7,8 +7,10 @@
     "tag": ["Активен", "green"],
     "lastResult": ["404", "volcano"],
     "SSL": "29.03.2025",
-    "domain": "06.12.2024"
+    "domain": "06.12.2024",
+    "favorite": true
   },
+
   {
     "key": "2",
     "name": "GitHub",
@@ -17,7 +19,8 @@
     "tag": ["Активен", "green"],
     "lastResult": ["200 OK", "green"],
     "SSL": "29.03.2025",
-    "domain": "06.12.2024"
+    "domain": "06.12.2024",
+    "favorite": false
   },
   {
     "key": "3",
@@ -27,7 +30,8 @@
     "tag": ["Пауза", "geekblue"],
     "lastResult": ["403", "cyan"],
     "SSL": "29.03.2025",
-    "domain": "06.12.2024"
+    "domain": "06.12.2024",
+    "favorite": true
   },
   {
     "key": "4",
@@ -37,7 +41,8 @@
     "tag": ["Активен", "green"],
     "lastResult": ["200 OK", "green"],
     "SSL": "15.04.2025",
-    "domain": "10.11.2024"
+    "domain": "10.11.2024",
+    "favorite": false
   },
   {
     "key": "5",
@@ -47,7 +52,8 @@
     "tag": ["Активен", "green"],
     "lastResult": ["200 OK", "green"],
     "SSL": "01.05.2025",
-    "domain": "20.12.2024"
+    "domain": "20.12.2024",
+    "favorite": true
   },
   {
     "key": "6",
@@ -57,7 +63,8 @@
     "tag": ["Пауза", "geekblue"],
     "lastResult": ["403", "cyan"],
     "SSL": "30.06.2025",
-    "domain": "15.01.2025"
+    "domain": "15.01.2025",
+    "favorite": false
   },
   {
     "key": "7",
@@ -67,7 +74,8 @@
     "tag": ["Активен", "green"],
     "lastResult": ["200 OK", "green"],
     "SSL": "12.07.2025",
-    "domain": "25.02.2025"
+    "domain": "25.02.2025",
+    "favorite": true
   },
   {
     "key": "8",
@@ -77,7 +85,8 @@
     "tag": ["Пауза", "geekblue"],
     "lastResult": ["403", "cyan"],
     "SSL": "18.08.2025",
-    "domain": "30.03.2025"
+    "domain": "30.03.2025",
+    "favorite": false
   },
   {
     "key": "9",
@@ -87,7 +96,8 @@
     "tag": ["Активен", "green"],
     "lastResult": ["200 OK", "green"],
     "SSL": "22.09.2025",
-    "domain": "05.04.2025"
+    "domain": "05.04.2025",
+    "favorite": true
   },
   {
     "key": "10",
@@ -97,7 +107,8 @@
     "tag": ["Пауза", "geekblue"],
     "lastResult": ["403", "cyan"],
     "SSL": "29.10.2025",
-    "domain": "10.05.2025"
+    "domain": "10.05.2025",
+    "favorite": false
   },
   {
     "key": "11",
@@ -107,7 +118,8 @@
     "tag": ["Активен", "green"],
     "lastResult": ["200 OK", "green"],
     "SSL": "15.11.2025",
-    "domain": "01.06.2025"
+    "domain": "01.06.2025",
+    "favorite": false
   },
   {
     "key": "12",
@@ -117,7 +129,8 @@
     "tag": ["Пауза", "geekblue"],
     "lastResult": ["403", "cyan"],
     "SSL": "20.12.2025",
-    "domain": "15.07.2025"
+    "domain": "15.07.2025",
+    "favorite": false
   },
   {
     "key": "13",
@@ -127,7 +140,8 @@
     "tag": ["Активен", "green"],
     "lastResult": ["200 OK", "green"],
     "SSL": "05.01.2026",
-    "domain": "10.08.2025"
+    "domain": "10.08.2025",
+    "favorite": false
   },
   {
     "key": "14",
@@ -137,7 +151,8 @@
     "tag": ["Пауза", "geekblue"],
     "lastResult": ["403", "cyan"],
     "SSL": "25.02.2026",
-    "domain": "20.09.2025"
+    "domain": "20.09.2025",
+    "favorite": false
   },
   {
     "key": "15",
@@ -147,6 +162,7 @@
     "tag": ["Активен", "green"],
     "lastResult": ["200 OK", "green"],
     "SSL": "10.03.2026",
-    "domain": "05.10.2025"
+    "domain": "05.10.2025",
+    "favorite": false
   }
 ]

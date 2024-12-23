@@ -36,11 +36,6 @@ const SideBar = () => {
       link: '/incidents',
     },
     {
-      title: 'Детали',
-      icon: <MonitorCog size={20} />,
-      link: '/фыва',
-    },
-    {
       title: 'Тарифы',
       icon: <CircleDollarSign size={20} />,
       link: '/tariffs',
@@ -51,11 +46,11 @@ const SideBar = () => {
       icon: <Settings size={20} />,
       link: '/settings',
     },
-    {
-      title: '404',
-      icon: <CircleX size={20} />,
-      link: '/asdfasdf',
-    },
+    // {
+    //   title: '404',
+    //   icon: <CircleX size={20} />,
+    //   link: '/asdfasdf',
+    // },
   ];
 
   const currentPath = location.pathname;

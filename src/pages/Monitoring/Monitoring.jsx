@@ -4,6 +4,7 @@ import MonitorTable from '../../components/MonitorTable';
 import AddUrl, { urlAtom, shortNameAtom, intervalAtom } from '../../components/AddUrl';
 import { modalAtom } from '../../atoms';
 import { Empty, Button, Modal, message } from 'antd';
+import { CirclePlus } from 'lucide-react';
 import { useAtom } from 'jotai';
 
 const Monitoring = () => {
@@ -41,7 +42,7 @@ const Monitoring = () => {
             onClick={() => setOpen(true)}
             className={`flex items-center gap-2 rounded-lg ${s.customButton}`}>
             Добавить URL
-            <img src="/img/add.svg" alt="add" />
+            <CirclePlus size={18} className={s.circlePlus} />
           </button>
         </div>
       </div>

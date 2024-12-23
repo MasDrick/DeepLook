@@ -4,8 +4,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: min(90%, 35rem);
-  height: 50vh;
+  // width: min(90%, 35rem);
+  min-height: 470px;
   background: linear-gradient(to bottom, $normal 50%, $normalhover 50%);
   padding: 25px 30px 35px;
   border-radius: 1rem;
@@ -32,14 +32,14 @@
       transition: all 0.3s ease;
       padding: 0.3rem 1rem;
 
-      img {
+      .circlePlus {
         transition: transform 0.3s ease;
       }
 
       &:hover {
         border-color: $light;
 
-        img {
+        .circlePlus {
           transform: scale(1.1);
         }
       }
@@ -101,4 +101,22 @@
 
 .suspended {
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  .pause {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    gap: 10px;
+    background-color: $normal;
+    padding: 5px 10px;
+    border-radius: 1rem;
+    p {
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+  }
 }

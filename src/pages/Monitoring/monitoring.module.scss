@@ -26,14 +26,14 @@
         transition: all 0.3s ease;
         padding: 0.3rem 1rem;
 
-        img {
+        .circlePlus {
           transition: transform 0.3s ease;
         }
 
         &:hover {
           border-color: $light;
 
-          img {
+          .circlePlus {
             transform: scale(1.1);
           }
         }

@@ -1,0 +1,35 @@
+[
+  {
+    "key": "1",
+    "name": "Ютуб",
+    "URL": "https://www.youtube.com/watch?v=example1",
+    "time": 30,
+    "tag": ["Активен", "green"],
+    "lastResult": ["200 OK", "green"],
+    "SSL": "01.01.2026",
+    "domain": "01.01.2026",
+    "favorite": false
+  },
+  {
+    "key": "2",
+    "name": "Ютуб",
+    "URL": "https://www.youtube.com/watch?v=example2",
+    "time": 45,
+    "tag": ["Пауза", "geekblue"],
+    "lastResult": ["403", "cyan"],
+    "SSL": "01.01.2026",
+    "domain": "01.01.2026",
+    "favorite": true
+  },
+  {
+    "key": "3",
+    "name": "Ютуб",
+    "URL": "https://www.youtube.com/watch?v=example3",
+    "time": 25,
+    "tag": ["Активен", "green"],
+    "lastResult": ["200 OK", "green"],
+    "SSL": "01.01.2026",
+    "domain": "01.01.2026",
+    "favorite": false
+  }
+]

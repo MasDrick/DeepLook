@@ -1,6 +1,7 @@
 import React from 'react';
 import Tracking from '../../components/Tracking';
 import HomeTable from '../../components/HomeTable';
+import Favourite from '../../components/Favourite';
 import { Empty } from 'antd';
 import s from './home.module.scss';
 
@@ -10,8 +11,17 @@ const Home = () => {
   }, []);
   return (
     <div className={s.home}>
-      <Tracking />
-      <HomeTable />
+      <div className={s.homeContainer}>
+        <div className={s.tracking}>
+          <Tracking />
+        </div>
+        <div className={s.homeTable}>
+          <HomeTable />
+        </div>
+      </div>
+      <div className={s.favourite}>
+        <Favourite />
+      </div>
     </div>
   );
 };

@@ -2,14 +2,13 @@ import React from 'react';
 import { ConfigProvider, Table, Tag, Button, Empty } from 'antd';
 import { useNavigate } from 'react-router';
 import { ArrowDownUp } from 'lucide-react';
-import data from '../../dataTable.json';
+import data from '../../dataDetails.json';
 import s from '../../pages/Monitoring/monitoring.module.scss';
 import { Link } from 'react-router';
 
 const { Column } = Table;
 
-const MonitorTable = () => {
-  const navigate = useNavigate();
+const DetailsTable = () => {
   const [tableData, setTableData] = React.useState(data);
 
   const handleDelete = (key) => {
@@ -50,13 +49,6 @@ const MonitorTable = () => {
             dataIndex="name"
             key="name"
             sorter={(a, b) => a.name.localeCompare(b.name)}
-            render={(text, record) => (
-              <span
-                style={{ color: '#1890ff', cursor: 'pointer' }}
-                onClick={() => navigate(`/details/${record.key}`)}>
-                {text}
-              </span>
-            )}
             sortIcon={({ sortOrder }) => (
               <ArrowDownUp
                 size={16}
@@ -182,4 +174,4 @@ const MonitorTable = () => {
   );
 };
 
-export default MonitorTable;
+export default DetailsTable;

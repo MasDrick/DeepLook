@@ -3,9 +3,9 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: min(90%, 65rem);
-  height: 50vh;
+  // justify-content: space-between;
+  // width: min(90%, 35rem);
+  // min-height: 470px;
   background: linear-gradient(to bottom, $normal 50%, $normalhover 50%);
 
   border-radius: 1rem;
@@ -16,6 +16,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 25px 30px 25px;
+    // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
     h1 {
       font-size: 1.5rem;

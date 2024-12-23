@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Input, Slider, Collapse, Button } from 'antd';
+import { Form, Input, Slider, Checkbox } from 'antd';
 import { atom, useAtom } from 'jotai';
 import s from './addUrl.module.scss';
-
-const { Panel } = Collapse;
 
 // Создаем атомы для хранения значений формы
 export const urlAtom = atom('');
 export const shortNameAtom = atom('');
 export const intervalAtom = atom('10');
+export const favoriteAtom = atom(false);
 
 const AddUrl = ({ onFormValidityChange }) => {
   const [url, setUrl] = useAtom(urlAtom);
   const [shortName, setShortName] = useAtom(shortNameAtom);
   const [interval, setInterval] = useAtom(intervalAtom);
   const [time, setTime] = useState(' мин');
+  const [favorite, setFavorite] = useAtom(favoriteAtom);
 
   const marks = {
     1: '1 м',
@@ -30,15 +30,15 @@ const AddUrl = ({ onFormValidityChange }) => {
   const handleSliderChange = (value) => {
     if (value >= 60) {
       setTime(' ч');
-      if (value == 60) {
+      if (value === 60) {
         setInterval('1');
-      } else if (value == 75) {
+      } else if (value === 75) {
         setInterval('6');
-      } else if (value == 90) {
+      } else if (value === 90) {
         setInterval('12');
-      } else if (value == 105) {
+      } else if (value === 105) {
         setInterval('18');
-      } else if (value == 120) {
+      } else if (value === 120) {
         setInterval('24');
       }
     } else {
@@ -51,6 +51,7 @@ const AddUrl = ({ onFormValidityChange }) => {
     console.log('URL:', url);
     console.log('Short Name:', shortName);
     console.log('Interval:', interval);
+    console.log('Favorite:', favorite); // Вывод состояния чекбокса
   };
 
   useEffect(() => {
@@ -68,12 +69,13 @@ const AddUrl = ({ onFormValidityChange }) => {
   }, [url, shortName, interval, onFormValidityChange]);
 
   return (
-    <div>
+    <div className={s.container}>
       <Form
         name="urlForm"
         layout="vertical"
         initialValues={{
           timepicker: 10,
+          favorite: favorite,
         }}
         onFinish={handleSubmit}>
         <Form.Item
@@ -119,6 +121,15 @@ const AddUrl = ({ onFormValidityChange }) => {
             onChange={handleSliderChange}
             tooltip={{ formatter: null }}
           />
+        </Form.Item>
+        <Form.Item name="favorite" valuePropName="checked" style={{ marginBottom: 10 }}>
+          <Checkbox
+            checked={favorite}
+            onChange={(e) => {
+              setFavorite(e.target.checked);
+            }}>
+            Добавить в избранное
+          </Checkbox>
         </Form.Item>
       </Form>
     </div>
