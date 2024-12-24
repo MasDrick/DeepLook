@@ -79,7 +79,7 @@ const SideBar = () => {
           to="/"
           aria-label="Brand"
           onClick={() => setActive(0)}>
-          <img src="../img/logo.svg" alt="Logo" />
+          <img src="img/logo.svg" alt="Logo" />
           <span>DeepLook</span>
         </Link>
       </div>
