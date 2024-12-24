@@ -42,7 +42,7 @@ const Register = () => {
     <div className={s.wrapper}>
       <div className={s.main}>
         <div className={s.logo}>
-          <img src="/img/logo.svg" alt="Logo" />
+          <img src="/img/Logo.svg" alt="Logo" />
           <span>DeepLook</span>
         </div>
         <div className="w-[400px] min-w-[340px] mx-auto p-8 border rounded-lg shadow-lg bg-white">
