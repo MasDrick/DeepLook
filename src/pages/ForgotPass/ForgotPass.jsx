@@ -26,7 +26,7 @@ const ForgotPass = () => {
     <div className={s.wrapper}>
       <div className={s.main}>
         <div className={s.logo}>
-          <img src="/img/logo.svg" alt="Logo" />
+          <img src="/img/Logo.svg" alt="Logo" />
           <span>DeepLook</span>
         </div>
         {notice ? (
