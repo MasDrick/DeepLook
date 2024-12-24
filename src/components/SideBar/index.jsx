@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import s from './sidebar.module.scss';
 import { Link, useLocation } from 'react-router';
+import logo from '/img/logo.svg';
 import {
   LayoutDashboard,
   ShieldAlert,
@@ -79,7 +80,7 @@ const SideBar = () => {
           to="/"
           aria-label="Brand"
           onClick={() => setActive(0)}>
-          <img src="img/logo.svg" alt="Logo" />
+          <img src={logo} alt="Logo" />
           <span>DeepLook</span>
         </Link>
       </div>
